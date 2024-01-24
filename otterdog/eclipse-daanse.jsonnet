@@ -35,6 +35,16 @@ orgs.newOrg('eclipse-daanse') {
       has_wiki: false,
       private: false,
       web_commit_signoff_required: true,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          requires_pull_request: true
+          required_approving_review_count: 1,
+          required_status_checks+: [],
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+          requires_commit_signatures: true,
+        },
+      ],
     },
   ],
 }
