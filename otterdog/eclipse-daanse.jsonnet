@@ -23,16 +23,18 @@ orgs.newOrg('eclipse-daanse') {
     },
   },
   _repositories+:: [
-    orgs.newRepo('demo-repository') {
-      allow_forking: false,
-      allow_merge_commit: true,
+    orgs.newRepo('org.eclipse.daanse.common') {
+      allow_merge_commit: false,
+      allow_rebase_merge: true,
+      allow_merge_commit: false,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
-      description: "A code repository designed to show the best GitHub has to offer.",
+      dependabot_alerts_enabled: true,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the common modules",
       has_wiki: false,
-      private: true,
-      web_commit_signoff_required: false,
+      private: false,
+      web_commit_signoff_required: true,
     },
   ],
 }
