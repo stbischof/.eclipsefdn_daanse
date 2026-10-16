@@ -106,6 +106,24 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       ],
     },
 
+    newDaanseRepo('org.eclipse.daanse.query.app') {
+      description: "Repository for the analysis query application",
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'actions',
+        'javascript-typescript',
+      ],
+      gh_pages_build_type: "workflow",
+      environments: [
+        orgs.newEnvironment('github-pages') {
+          branch_policies+: [
+            "main"
+          ],
+          deployment_branch_policy: "selected",
+        },
+      ],
+    },
+
     newDaanseRepo('org.eclipse.daanse.gene') {
       description: "Repository for the gene",
       code_scanning_default_setup_enabled: true,
